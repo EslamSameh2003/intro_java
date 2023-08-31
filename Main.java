@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import static java.lang.Math.*;
+
 public class Main {
 
     static int sum(int n1,int n2) //dynamic return  func
@@ -9,6 +12,75 @@ public class Main {
     {
         System.out.println("sub = "+(n1-n2));
     }
+
+    static int sum2(int... n)
+    {
+        int s=0;
+        for (int i :n)
+        {
+            s+=i;
+        }
+        return s;
+
+    }
+///////////////////////////////// recursive func////
+    static int b=0;
+    static void func()
+    {
+
+        if(b<5)
+        {
+            System.out.println("hi");
+            b++;
+            func();
+        }
+
+
+    }
+    static int n=0;
+    static void f()
+    {
+
+        if(n==5) //base case
+        {
+            return;
+        }
+
+        System.out.println("hi");
+        n++;
+        f();  //recursive func
+
+
+    }
+
+    static int fact(int n)
+    {
+        if (n == 0||n == 1) {
+            return 1;
+        }
+        else
+        {
+            return n *(fact(n-1));
+            //5 * (fact(4)) 24*5 = 120
+            //4 * (fact(3)) 6*4  = 24
+            //3 * (fact(2)) 2*3  = 6
+            //2 * (fact(1)) 2*1  = 2
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     public static void main(String[] args) {
@@ -268,18 +340,78 @@ public class Main {
         int s1=sum(4,7);
         System.out.println("sum = "+ s1);
          sub(10,7);
+        System.out.println("sum2 = "+ sum2(4,5,7,5,6,8,5,5)); // variable number of argument
+
+// /////////////////////////// built in func ///////
+        System.out.println(abs(-1));
+        System.out.println(ceil(1.2));
+        System.out.println(floor(1.7));
+        System.out.println(pow(2,4));
+        System.out.println(sqrt(4));
+        System.out.println(ceil(1.2));
+        System.out.println(random());
+////////////////////////////////////////// overloading function /////////////////////
+        /*
+            is always different methods to have the same name , but different signatures can can differ by
+             1- number of input parameters or
+             2- type of input parameters   or
+             3- both
+
+         */
+////////////////////////////////////// recursion function /////////////////////////
+        // progress in which a method calls itself continuously
+        // A method in java calls itself is called recursive method
+        // it's like a loop, and it can stop with if or switch
+        func();
+        System.out.println("factorial = "+ fact(5));
+
+   //////////////////////////////////////// Array /////////////////////////
+    // 1D array //
+/*
+     int size=in.nextInt();
+     int arr[]=new int[size];
+        for (int i = 0; i < size; i++)
+        {
+           arr[i]=in.nextInt();
+            System.out.println(arr[i]);
+        }
+*/
 
 
+        char arr2[]=new char[5];
+        arr2[0]='h';
+        arr2[1]='e';
+        arr2[2]='l';
+        arr2[3]='l';
+        arr2[4]='o';
+        for (int i = 0; i <arr2.length ; i++) {
+            System.out.print(arr2[i]);
+        }
+        System.out.print(arr2);
+
+        char arr3[] = new char [5];
+        arr3=in.next().toCharArray(); // تخزين string ف array of char
+        System.out.println(arr3);
 
 
+        char arr4[]=new char[]{'a','b','c','d'};
+        String str =new String(arr4,0,2);
+        System.out.println(str);
 
 
+        int arr5[]=new int [5];
+        int sum=0; int avr=0;
+        for (int i = 0; i < arr5.length ; i++)
+        {
+            arr5[i]=in.nextInt();
+        }
 
-
-
-
-
-
+        for (int i=0; i< arr5.length ; i++)
+        {
+            sum+=arr5[i];
+            avr=sum/arr5.length;
+        }
+        System.out.println(avr);
 
 
 
@@ -293,3 +425,5 @@ public class Main {
 
     }
 }
+
+
